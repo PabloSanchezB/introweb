@@ -1,0 +1,95 @@
+<!--Este es un archivo index.html, que es LO PRIMERO que busca una dirección al entrar a un servidor
+Siempre buscara de primero un archivo llamado index.html. Ni siquiera debemos escribir index.html,
+solo con la raiz principal es suficiente para renderizar dicho archivo-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <!--El charset utf-8 hace que nuestro documento html soporte TODOS los caracteres unicode
+        incluyendo arabes, chinos, etc. Con utf-8 no es necesario usar &acute; para las tildes-->
+        <title>Mi P&aacute;gina de Ejemplo</title>
+        <!--El &aacute es el codigo ascii para la a minuscula tildada. Esto garantiza que la reconozca
+        CUALQUIER formato de caracteres. Buscar la columna html name en la pagina web
+        ascii code-Extended ascii table-->
+    </head>
+    <body>
+        <!--Con div creamos un contenedor. Para html cada elemento (headers, parrafos, listas, tablas,
+        imagenes, etc.) es un contenedor en si mismo. Contenedores dentro de contenedores. Para ver
+        cada contenedor individual podemos darle inspeccionar la pagina web en el browser. Aparecera
+        el codigo html y al pasar el cursor sobre el codigo se ira resaltando el contenedor al que
+        haga referencia ese pedazo de codigo. div lo utilizamos para agrupar un conjunto de elementos
+        de html. Esto sirve para darle estilos con css a toda la agrupación. Todos los elementos
+        (contenedores) html tienen las mismas propiedades: margen, borde, padding, etc. Todos esos
+        espacios suman para darle el tamaño al elemento html en cuestión-->
+        <div id="contenedor">
+        <h1>El título del Contenido de la Página</h1>
+        <h2>Título mas pequeño</h2> <!--Y así hasta el h6-->
+        <p>dfsdfdfdgegerggdfdfbghghghfghrthrthrthrthtyjtryjujyuyutyjtyhhsgrgertergrgdfgtherthrthrththrt</p>
+        <p>Otro parrafo: dflsdkmfsdkmlskdmvkforefskdmflaksdmflkamsdlfkmsadñmafmweñflkmsdflkmasdñlkfmasl
+            dfsdfdfsdfsddfsdfsdfsdfsdfsdfsdfsfsdfsfsFinParrafo
+        </p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ul>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ol>
+        <!--Existen otros tipos de listas, ademas de ul y ol-->
+        <!--La fuente de datos de la imagen (src) puede ser una dirección absoluta o una dirección
+        relativa. Siempre debemos usar direcciones relativas, y todos los assets que vayamos a usar
+        deben estar dentro de la carpeta del proyecto (imagenes y demas). Un punto significa
+        la ubicación actual del archivo html que estemos trabajando. Dos puntos significa devolverse
+        al directorio anterior. No olvidar el atributo alt, para que los discapacitados puedan
+        tener una descripción de la imagen. Un ejemplo del uso de los doble puntos en la src
+        lo podemos ver en prueba3.html en assets/images/prueba1/prueba2-->
+        <img src="./assets/images/mjolnir.jpg" alt="Una foto de prueba" width="100" height="150"/>
+        <table>
+            <!--Las tablas funcionan exactamente igual sin usar las etiquetas thead y tbody, yo podria
+            usar solo tr, th y td para construir una tabla, pero se recomienda usar thead y tbody para
+            mejor estructuración de la tabla-->
+            <thead>
+                <tr>
+                    <th>Columna 1</th><th>Columna 2</th><th>Columna 3</th>
+                    <!--la etiqueta th es para las cabeceras de las columnas-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   <td>Celda 1</td><td>Celda 2</td><td>Celda 3</td>
+                </tr>
+                <tr>
+                    <td>Celda 1</td><td>Celda 2</td><td>Celda 3</td>
+                 </tr>
+                 <tr>
+                    <td>Celda 1</td><td>Celda 2</td><td>Celda 3</td>
+                 </tr>
+            </tbody>
+        </table>
+        <!--Los formularios son el princicpal medio del html para introducir datos. Por defecto, todos los 
+        formularios usan el metodo GET, pero nosotros usaremos el metodo POST. El atributo action es a
+        donde yo quiero redireccionar mi petición (su valor es una ruta). Ademas del metodo POST, 
+        tambien usaremos el metodo PUT. POST: Enviar info mediante un formulario. PUT: formulario de
+        edición, en algunos casos. method: El metodo del http-->
+        <form action=".." method="POST">
+            <!--SIEMPRE debemos colocarle un nombre (name) a cada uno de nuestros input. El id
+            gralmente lleva el mismo valor del nombre-->
+            <!--Muchos input son elementos sin contenido, por lo que la etiqueta se cierra directamente-->
+            <input type="text" name="input1" id="input1"/>
+            <!--OJO! los nombres se pueden repetir, pero los id NUNCA se deben repetir-->
+            <input type="datetime" name="inputd" id="input"/>
+            <input type="password" name="inputpwd" id="inputpwd"/>
+            <!--El input tipo hidden es un input que no se muestra pero que esta ahi y de puede procesar-->
+            <textarea name="text1" id="text1">
+                Texto por defecto del textarea...
+            </textarea>
+        </form>
+    </div>
+    </body>
+</html>
