@@ -1,0 +1,34 @@
+/*Aplicar color naranja y tamaño de fuente a todos los elementos html con etiqueta p*/
+p{
+    color:rgb(219, 132, 33);
+    font-size: 20px;
+}
+
+/* span{
+    color: red;
+    font-size: 40px;
+} */
+/*Aqui estamos aplicando estilo a TODOS los elementos de etiqueta span*/
+
+p span{
+    color: red;
+    font-size: 40px;
+}
+/*Aqui aplicamos solo a los elementos span que esten dentro de un elemento de etiqueta p (parrafo)
+Este es un caso de selectores descendentes (span dentro de p)*/
+
+/* .alert{
+    background-color: aquamarine;
+}*/
+/*A todos los elementos de clase "alert"*/
+
+/* li.alert{
+    background-color: aquamarine;
+}*/
+/*A todos los elementos de etiqueta li Y que sean de clase "alert"*/
+
+p, .alert{
+    background-color: rgb(43, 226, 104);
+}
+/*A todos los elementos de etiqueta p Y a todos los elementos de clase "alert". Este es un caso de selectores
+agrupados (separados por comas)*/

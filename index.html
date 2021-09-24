@@ -12,6 +12,10 @@ solo con la raiz principal es suficiente para renderizar dicho archivo-->
         <!--El &aacute es el codigo ascii para la a minuscula tildada. Esto garantiza que la reconozca
         CUALQUIER formato de caracteres. Buscar la columna html name en la pagina web
         ascii code-Extended ascii table-->
+        <link rel="stylesheet" href="./assets/css/estilos.css"/>
+        <!--Y asi es como aplicamos un stylesheet de css a nuestro archivo html. El atributo rel
+        especifica la relación. La buena practica es separar la estructura (documento html) de los
+        estilos (documento css)-->
     </head>
     <body>
         <!--Con div creamos un contenedor. Para html cada elemento (headers, parrafos, listas, tablas,
@@ -25,20 +29,24 @@ solo con la raiz principal es suficiente para renderizar dicho archivo-->
         <div id="contenedor">
         <h1>El título del Contenido de la Página</h1>
         <h2>Título mas pequeño</h2> <!--Y así hasta el h6-->
-        <p>dfsdfdfdgegerggdfdfbghghghfghrthrthrthrthtyjtryjujyuyutyjtyhhsgrgertergrgdfgtherthrthrththrt</p>
-        <p>Otro parrafo: dflsdkmfsdkmlskdmvkforefskdmflaksdmflkamsdlfkmsadñmafmweñflkmsdflkmasdñlkfmasl
+        <p>dfsdfdfdgegerggdfdfbg<span>Hola! Soy Span!</span>hghghfghrthrthrthrthtyjtryjujyuyutyjtyhhsgrger
+            tergrgdfgtherthrthrththrt</p>
+        <!--OJO! al elemento de etiqueta span. Es algo asi como un mini div...-->
+        <p class="alert">Otro parrafo: dflsdkmfsdkmlskdmvkforefskdmflaksdmflkamsdlfkmsadñmafmweñflkmsdflkmasdñlkfmasl
             dfsdfdfsdfsddfsdfsdfsdfsdfsdfsdfsfsdfsfsFinParrafo
         </p>
+        <!--OJO! a como aplicamos una clase a cualquier elemento html-->
         <ul>
             <li>Item 1</li>
-            <li>Item 2</li>
+            <li class="alert">Item 2</li>
             <li>Item 3</li>
             <li>Item 4</li>
         </ul>
         <ol>
             <li>Item 1</li>
             <li>Item 2</li>
-            <li>Item 3</li>
+            <li class="alert">Item 3</li>
+            <!--Basicamente a cualquier elemento html se le puede aplicar una clase-->
             <li>Item 4</li>
         </ol>
         <!--Existen otros tipos de listas, ademas de ul y ol-->
