@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Formulario de Pruebas</title>
+  </head>
+  <body>
+    <!--Para crear rapidamente una etiqueta con clase, se escribe etiqueta.clase. Ejemplo: div.container y
+    enter para crear rapidamente el contenedor de abajo. Recordar que el .container de bootstrap es
+    responsive, y por lo tanto centrará automaticamante (¿?)-->
+    <div class="container">
+        <div class="row">
+            <!--La clase py es para colocar un padding en el eje de las y (arriba y abajo). Si fuera px, 
+            entonces el padding estaria a la izquierda y derecha. La clase text.center es para centrar
+            el texto. Todas estas clases se pueden buscar en la documentación de bootstrap-->
+            <div class="col py-5 text-center">
+                <h2>Dirección de Envío</h2>
+                <!--Los parrafos en bootstrap van con la clase lead, pa que se vean mas bonitos-->
+                <p class="lead">Prueba de Bootstrap</p>
+            </div>
+        </div>
+        <div class="row">
+            <!--En tamaños mas pequeños que medio, esta columna/celda va a ocupar las 12 celdas y va a estar
+            de segunda. En tamaños de medio para arriba, esta columna/celda ocupara 8 celdas y estará de 
+            primero-->
+            <div class="col-12 col-md-8 order-2 order-md-1">
+                <!--mb: margin bottom, para el padding-->
+                <h4 class="mb-3">Dirección de Envío</h4>
+                <form action="">
+                    <!--Notese que el formulario consta de varias filas, por eso la etiqueta form CONTIENE a
+                    las etiquetas div.row. Notese que el row de abajo es una fila anidada dentro de un col-->
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control">
+                            <!--Notese que el for del label corresponde al id del input-->
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" class="form-control">
+                        </div>
+                    </div>
+                    <!--El elemento de abajo no es necesario que sea una row, ya que ocupa todo el ancho
+                    y no tiene subdivisiones. La clase text-muted es para que el texto aparezca en gris claro-->
+                    <div class="mb-3">
+                        <label for="correo">Correo<span class="text-muted">(Opcional)</span></label>
+                        <input type="email" id="correo" class="form-control" name="correo">
+                    </div>
+                    <!--Y lo mismo de arriba para este de abajo (No es necesario que sea row)-->
+                    <div class="mb-3">
+                        <label for="direccion">Dirección<span class="text-muted">(Opcional)</span></label>
+                        <input type="text" id="direccion" class="form-control" name="direccion">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label for="pais">País</label>
+                            <!--d-block: forma de bloque. w-100: ancho de 100%. Ocupa el 100% de lo que
+                            ocupe esa celda-->
+                            <select name="pais" id="pais" class="custom-select d-block w-100">
+                                <!--OJO! No confundir el contenido de la etiqueta option (Colombia,
+                                Argentina, etc.) con el valor devuelto al seleccionar esa opción (el
+                                atributo value)-->
+                                <option value="">Seleccionar un País</option>
+                                <option value="col">Colombia</option>
+                                <option value="ar">Argentina</option>
+                                <option value="br">Brasil</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label for="localidad">Localidad</label>
+                            <!--d-block: forma de bloque. w-100: ancho de 100%. Ocupa el 100% de lo que
+                            ocupe esa celda-->
+                            <select name="localidad" id="localidad" class="custom-select d-block w-100">
+                                <!--OJO! No confundir el contenido de la etiqueta option (Colombia,
+                                Argentina, etc.) con el valor devuelto al seleccionar esa opción (el
+                                atributo value)-->
+                                <option value="">Seleccionar una Localidad</option>
+                                <option value="lc1">Localidad 1</option>
+                                <option value="lc2">Localidad 2</option>
+                                <option value="lc3">Localidad 3</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label for="codigo-postal">Código Postal</label>
+                            <input type="text" class="form-control" id="codigo-postal" name="codigo-postal">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="numero-tarjeta">Numero de tarjeta</label>
+                            <input type="text" id="numero-tarjeta" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="nombre-tarjeta">Nombre en la tarjeta</label>
+                            <input type="text" id="nombre-tarjeta" class="form-control">
+                            <!--OJO! A esta etiqueta small-->
+                            <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--Notese que aqui en tamaño small (sm) queda un espacio vacío, ya que 4+4=8, 
+                        faltarian 4 para llenar las 12-->
+                        <div class="col-6 col-sm-4 mb-3">
+                          <label for="tarjeta-expiracion">Expiración</label>
+                          <input type="text" id="tarjeta-expiracion" class="form-control">
+                        </div>
+                        <div class="col-6 col-sm-4 mb-3">
+                          <label for="tarjeta-ccv">CVV</label>
+                          <input type="text" id="tarjeta-ccv" class="form-control">
+                        </div>
+                    </div>
+                    <!--OJO! A esta etiqueta hr. Es como una linea de separación o espacio en la pagina-->
+                    <hr class="mb-4">
+                    <!--OJO! A todas esas clases para botones del bootstrap. btn-block: Que ocupe todo
+                    btn-lg: Tamaño grande. btn-primary: Para el color. Recordar que el boton tipo submit
+                    es para enviar el formulario-->
+                    <button type="submit" class="btn btn-block btn-lg btn-primary">
+                        Continuar con el pago
+                    </button>
+                </form>
+            </div>
+            <!--Notese que hasta ahora es que vamos a insertar la segunda columna de la segunda fila del
+            container principal. OJO a como cambian los tamaños en md y los ordenes con respecto a la columna
+            anterior (8+4=12)-->
+            <div class="col-12 col-md-4 order-1 order-md-2">
+                <h4 class="mb-3 d-flex justify-content-between align-items-center">
+                    <span class="text-muted">Tu Carrito</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between">
+                      <div>
+                        <h6 class="my-0">item1</h6>
+                        <small class="text-muted">descripción</small>
+                      </div>
+                      <span class="text-muted">10€</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <div>
+                        <h6 class="my-0">item2</h6>
+                        <small class="text-muted">descripción</small>
+                      </div>
+                      <span class="text-muted">20€</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <div>
+                        <h6 class="my-0">item3</h6>
+                        <small class="text-muted">descripcion</small>
+                      </div>
+                      <span class="text-muted">3€</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                      <div class="text-success">
+                        <h6 class="my-0">Codigo de descuento</h6>
+                        <small class="text-success">DPS5</small>
+                      </div>
+                      <span class="text-success">-5€</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                      <span>Total (EUR)</span>
+                      <strong>28€</strong>
+                    </li>
+                  </ul>
+            </div> <!--Fin de la segunda columna-->
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
