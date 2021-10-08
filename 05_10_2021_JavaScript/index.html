@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Prueba JavaScript</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="basico.js"></script>
+        
+        <button onclick="agregarCarroCompra({id: 2, nombre: 'teclado', precio: 1.0,
+        descripcion: 'Este es un teclado mecánico', foto: '/img/p2.png'})">Agregar</button>
+
+        <button onclick="agregarCarroCompra({id: 3, nombre: 'escritorio', precio: 4.0,
+        descripcion: 'Escritorio ajustable en altura', foto: '/img/p3.png'})">Agregar2</button>
+
+        <button onclick="eliminarItem({id: 2})">Eliminar item 2</button>
+        <!--OJO!! Al invocar eliminarItem, solo tenemos que pasarle un objeto con un campo id y nada mas, ya que
+        id es el criterio usado para eliminar. También serviria un objeto que tuviera cualquier cantidad de 
+        campos, SIEMPRE Y CUANDO uno de ellos se llame id...-->
+        
+        <button onclick="mostrarCarrito()">Mostrar</button>
+    </body>
+</html>
