@@ -1,0 +1,10 @@
+.avatar{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; /*Da el efecto de que la imagen es un circulo, borde circular*/
+}
+
+.item{
+    padding: 20px 0; /*A los lados de 20 px, arriba y abajo de 0*/
+    border-top: 1px solid rgb(158, 153, 153);
+}
