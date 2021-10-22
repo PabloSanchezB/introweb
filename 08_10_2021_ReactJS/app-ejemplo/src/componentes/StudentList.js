@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useState} from "react"; /*Aqui importamos el hook useState */
 import StudentItem from "./StudentItem"; //Este es un componente que importa otro componente
 /*Graficamente, el componenete StudentItem se muestra dentro del componenete StudentList, al igual que todos
 los componentes se muestran dentro del componenete App */
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import StudentForm from "./StudentForm"; //Importamos el formulario para agregar estudiantes
+
+/*Y si queremos crear un formulario para agregar mas estudiantes a la lista? Mirar el componente StudentForm*/
 
 const StudentList = () => {
-    const students = [{id: 1, nombre: 'Alvaro', programa: 'Sistemas', semestre: 4},
+    /*Entonces, necesitamos que al darle click al boton Agregar Estudiante del componente StudentForm se agregue un
+    nuevo elemento a esta lista (students) */
+    /*OJO!! Si students fuera CONSTANTE (const) NO PODRIAMOS agregarle mas elementos */
+    /*OJO!!! students será ahora studentsInitial, porque vamos a utilizarlo con el hook useState. Ademas, ahora si
+    puede ser constante, porque solo se usara una vez para darle el valor inicial a la variable de estado students*/
+    const studentsInitial = [{id: 1, nombre: 'Alvaro', programa: 'Sistemas', semestre: 4},
                         {id: 2, nombre: 'Pedro', programa: 'Civil', semestre: 1},
                         {id: 3, nombre: 'Natalia', programa: 'Derecho', semestre: 8},
                         {id: 4, nombre: 'Luisa', programa: 'Medicina', semestre: 2},
@@ -16,7 +24,41 @@ const StudentList = () => {
     const tuNombreFuncion = (nombre) => {
         console.log(nombre);
     }
+
+    /*OJO!!! Ahora students es una variable de estado que manejara el array con la lista de estudiantes!!!*/
+    const [students, setStudents] = useState(studentsInitial);
+
+    /*OJO!!!! Todo el cuentico de pasarle esta función a StudentForm para agregar un nuevo estudiante NO VA A SERVIR
+    REPITO: NO VA A SERVIR asi la logica este bien y basicamente ignorará las instrucciones, PORQUE la unica forma de 
+    cambiar la información de un componente y de cambiar lo que se renderiza en pantalla ES CON VARIABLES DE ESTADO!!!!!!!!! */
+    /*OJO!!! Ahora SI va a servir porque ahora students es una variable de estado. La lista de estudiantes ahora
+    es una variable de estado y ahora si se podrá modificar la parte visual, lo que se renderiza en pantalla. 
+
+    [[[[ EN OTRAS PALABRAS: students (la lista de estudiantes) es la variable de estado que controla el estado del 
+    componente StudentList (Estado: Lo que se renderiza en pantalla) ]]]]]]]*/
+
+    const alEnviarForm = (studentFromForm) => { /*OJO!! Esta funcion la tenemos que hacer aqui en StudentList, porque aqui es donde
+        esta el array students */
+        const idS = students.length + 1; /*Esto es para aumentar y asignar automaticamante el id al nuevo estudiante
+        insertado */
+        const newStudent = {id: idS, ...studentFromForm};
+        /*OJO!!! Al malabar con SPREAD que estamos haciendo aqui. Basicamente, students funcionará como un 
+        acumulador. Y OBLIGATORIAMENTE toca hacerlo asi, porque recuerda que la unica forma de cambiar la variable
+        de estado es con la función especificada para ello, en este caso, setStudents. Yo no podria, por ejemplo,
+        hacer students.push por fuera, y luego pasarle students a setStudents. Y tampoco funcionaria tu hipotesis
+        de hacerle .push a studentsInitial (poniendola let en vez de const, por supuesto) y luego pasandosela 
+        a setStudents. No se porque no funciona, pero asi es. */
+        setStudents([...students, newStudent]);
+    }
+
     return (
+        <> {/*Recordar framings cuando sea necesario */}
+        <Row>
+            <StudentForm agregar={alEnviarForm} /> {/*Y aqui es donde zampamos nuestro formulario StudentForm */}
+            {/*OJO!!! En StudentForm hemos definido la propiedad "agregar" y mediante esa propiedad le enviamos
+            la función "alEnviarForm". Tenemos que enviarle la función a StudentForm porque en ese componente es
+            donde esta el botón que envia el formulario con la info del nuevo estudiante a agregar al array students */}
+        </Row>
         <Row className="border"> {/*OJO!! A este posicionamiento del Row y el Col */}
             <Col>
             {/*¿Como le paso a un componente hijo (StudentItem) la información desde un componente padre (StudentList)?
@@ -54,6 +96,7 @@ const StudentList = () => {
             del map, hay varios componenetes seguidos (mas de uno) que necesitan un padre */}
             </Col>
         </Row>
+        </>
     );
 }
 
